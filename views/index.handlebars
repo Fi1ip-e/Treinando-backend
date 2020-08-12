@@ -1,0 +1,30 @@
+<div class="jumbotron" style="background-color: cornflowerblue">
+  <h1 class="display-4">Bem Vindo</h1>
+  <p class="lead">Aprendendo a desenvolver em nodejs.</p>
+  <hr class="my-4">
+  <p>Sistema basico utilizando: nodejs, mongo, express, handlebars</p>
+  {{#if user}}
+  {{else}}
+  <a class="btn btn-primary btn-lg" href="/usuarios/registro" role="button">Crie uma conta</a>
+  {{/if}}
+</div>
+
+<h2>Postagens recentes:</h2>
+
+{{#each postagens}}
+<div class="card">
+    <div class="card-body">
+        <h3>{{titulo}}</h3>
+        <p>{{descricao}}</p>
+        <p>{{slug}}</p>
+        <hr>
+        <small>Categoria: {{categoria.nome}}</small><br>
+        <small>Data de criação: {{data}}</small><br>
+
+        <a href="/postagem/{{slug}}"><button type="submit" class="btn btn-success">Leia mais</button></a>
+        
+    </div>
+</div>
+{{else}}
+<h5>Nenhuma postagem registrada</h5>
+{{/each}}
