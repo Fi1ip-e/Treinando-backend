@@ -11,7 +11,7 @@ const {eadmin} = require('../helpers/eadmin');
 //>>>>>>>>ROTAS<<<<<<<<<<<
 
 //>>>>>ROTA DE CRIAÇÃO E LISTAGEM DE CATEGORIA
-routes.get('/cat', eadmin, (req, res) =>
+routes.get('/cat', (req, res) =>
 {
     Categoria.find().then((categorias) =>
     {
@@ -21,11 +21,11 @@ routes.get('/cat', eadmin, (req, res) =>
         req.flash('error-msg', 'houve um erro ao lista as categorias')
     })
 })
-routes.get('/categorias/add', eadmin, (req, res) =>
+routes.get('/categorias/add', (req, res) =>
 {
     res.render('admin/addcategoria');
 })
-routes.post('/categorias/nova', eadmin, (req, res) =>
+routes.post('/categorias/nova', (req, res) =>
 {
     var erros = [];
     
@@ -57,7 +57,7 @@ routes.post('/categorias/nova', eadmin, (req, res) =>
     })
 })
 //Postagem
-routes.get('/post', eadmin, (req, res) =>
+routes.get('/post', (req, res) =>
 {
     Postagem.find().populate("categoria").sort({data:'desc'}).then((postagens) =>
     {
@@ -67,7 +67,7 @@ routes.get('/post', eadmin, (req, res) =>
         req.flash("error_msg", "houve um erro ao carregar a lista de postagem")
     })
 })
-routes.get('/postagens/add', eadmin, (req, res) =>
+routes.get('/postagens/add', (req, res) =>
 {
     Categoria.find().lean().then((categorias) =>
     {
@@ -78,7 +78,7 @@ routes.get('/postagens/add', eadmin, (req, res) =>
         res.redirect('/admin/postagens')
     })
 })
-routes.post('/postagens/nova', eadmin, (req, res) =>
+routes.post('/postagens/nova', (req, res) =>
 {
     var erros = [];
     
@@ -156,7 +156,7 @@ routes.post('/categorias/edit', eadmin, (req, res) =>
     })
 })
 //>>>>>>>>>>>>>>>>>POSTAGEM
-routes.get('/postagem/edit/:id', eadmin, (req, res) =>
+routes.get('/postagem/edit/:id', (req, res) =>
 {
     Postagem.findOne({_id: req.params.id}).lean().then((postagens) =>
     {
@@ -197,7 +197,7 @@ routes.post('/postagens/edit', eadmin, (req, res) =>
 //>>>>>>>>>>>>>>Delete<<<<<<<<<<<<<<<
 
 //categorias
-routes.post('/categorias/deletar', eadmin, (req, res) =>
+routes.post('/categorias/deletar', (req, res) =>
 {
     Categoria.remove({_id: req.body.id}).lean().then(() =>
     {

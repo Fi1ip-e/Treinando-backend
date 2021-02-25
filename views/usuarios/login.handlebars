@@ -1,49 +1,39 @@
 
 <style>
-    body{
-        background: gray;
-    }
     h2{
         text-align: center;
     }
     #divform{
+        background: #E0FFFF;
         background-position: center;
-        width: 70%;
-        height: 70%;
+        display: flex;
         align-items: center;
-        background: gray;
-        margin: auto;
-        border-block-color: gray;
-        border-bottom-color: gray;
+        margin: 3rem auto;
+        padding: 1rem 0;
     }
-    #divform2{
-        background: darkgray;
-        background-position: center;
-        width: 60%;
-        height: 60%;
-        align-items: center;
-        margin: auto;
+    @media (min-width: 800px){
+        #divform{
+            width: 40%;
+            height: 60%;
+        }
     }
 </style>
 
-
+<h2>Faça o Login</h2>
 <div id="divform" class="card">
-    <h2>Faça o Login</h2>
-    <div id="divform2" class="card">
-        <form action="/usuarios/login" method="POST">
-            
-            <div id="input01" class="input mt-4">
-            
-                <label for="email">Email:</label>
-                <br>
-                <input type="email" name="email" required class="form-control"/>
-                <br>
-                <label for="senha">Senha:</label>
-                <br>
-                <input type="password" name="senha" required class="form-control"/>
-                <br>
-                <button class="btn btn-success mt-2" type="submit">Entrar</button>
-            </div>
-        </form>
-    </div>
+    <form action="/usuarios/login" method="POST">
+        
+        <div id="input01" class="input mt-4">
+        
+            <label for="email">Email:</label>
+            <br>
+            <input type="email" name="email" required class="form-control"/>
+            <br>
+            <label for="senha">Senha:</label>
+            <br>
+            <input type="password" name="senha" required class="form-control"/>
+            <br>
+            <button class="btn btn-success mt-2" type="submit">Entrar</button>
+        </div>
+    </form>
 </div>
