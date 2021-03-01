@@ -1,10 +1,25 @@
 <style>
     .container {
+        display: grid;
         background: #E0FFFF;
-        margin: 3rem auto;
+        margin: 4rem auto;
+        padding-top: 0.10rem;
+        padding-bottom: 0.1rem;
+        border-radius: 1rem;
+    }
+    .titulo {
+        margin: 0.01rem auto;
+        padding: 0;
+    }
+    .texto {
+        font-size: 18px;
+        text-align: justify;
+        margin-top: 4rem;
+        padding-bottom: 0.1rem;
+        margin-bottom: 3rem;
     }
 </style>
 <div class="container">
-    <h2>{{postagem.titulo}}</h2>
-    <p>{{postagem.conteudo}}</p>
+    <h2 class="titulo">{{postagem.titulo}}</h2>
+    <p class="texto">{{postagem.conteudo}}</p>
 </div>

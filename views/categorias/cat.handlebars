@@ -1,10 +1,51 @@
+<style>
+    .container {
+        width: 60%;
+        text-align: center;
+        display: grid;
+        
+        margin: 0.10rem auto;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        border-radius: 1rem;
+    }
+    h4 {
+        background: #E0FFFF;
+        margin-top: 1rem;
+        margin-bottom: 2rem;
+        padding-bottom: 0rem;
+    }
+    .categoria {
+        
+        text-decoration: none !important;
+        
+    }
+    .card-body {
+        background: #E0FFFF;
+        text-align: center;
+        
+        margin: 1.5rem auto;
+        border-radius: 1rem;
+    }
+    @media (min-width: 800px) {
+        .container {
+            margin: 3rem auto;
+            display: flex;
+            text-align: center;  
+            width: 70%
+        }
+       
+    }
+</style>    
+
 <h4>Categorias</h4>
 
+
 {{#each categoria}}
-<div class="card">
-    <div class="card-body mt-4">
+<div class="container">
+    <div class="card-body">
         
-        <a href="/categoria/{{slug}}"><h3>{{nome}}</h3></a>      
+        <a class="categoria" href="/categoria/{{slug}}"><h3>{{nome}}</h3></a>      
     </div>
 </div>
 {{else}}

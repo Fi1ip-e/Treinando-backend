@@ -11,7 +11,7 @@ const {eadmin} = require('../helpers/eadmin');
 //>>>>>>>>ROTAS<<<<<<<<<<<
 
 //>>>>>ROTA DE CRIAÇÃO E LISTAGEM DE CATEGORIA
-routes.get('/cat', (req, res) =>
+routes.get('/cat', eadmin, (req, res) =>
 {
     Categoria.find().then((categorias) =>
     {
@@ -21,11 +21,11 @@ routes.get('/cat', (req, res) =>
         req.flash('error-msg', 'houve um erro ao lista as categorias')
     })
 })
-routes.get('/categorias/add', (req, res) =>
+routes.get('/categorias/add', eadmin, (req, res) =>
 {
     res.render('admin/addcategoria');
 })
-routes.post('/categorias/nova', (req, res) =>
+routes.post('/categorias/nova', eadmin,(req, res) =>
 {
     var erros = [];
     
@@ -57,7 +57,7 @@ routes.post('/categorias/nova', (req, res) =>
     })
 })
 //Postagem
-routes.get('/post', (req, res) =>
+routes.get('/post', eadmin,(req, res) =>
 {
     Postagem.find().populate("categoria").sort({data:'desc'}).then((postagens) =>
     {
@@ -67,7 +67,7 @@ routes.get('/post', (req, res) =>
         req.flash("error_msg", "houve um erro ao carregar a lista de postagem")
     })
 })
-routes.get('/postagens/add', (req, res) =>
+routes.get('/postagens/add', eadmin,(req, res) =>
 {
     Categoria.find().lean().then((categorias) =>
     {
@@ -78,7 +78,7 @@ routes.get('/postagens/add', (req, res) =>
         res.redirect('/admin/postagens')
     })
 })
-routes.post('/postagens/nova', (req, res) =>
+routes.post('/postagens/nova', eadmin,(req, res) =>
 {
     var erros = [];
     

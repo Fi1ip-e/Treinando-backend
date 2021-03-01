@@ -60,6 +60,7 @@ app.set('view engine', 'handlebars');
 //public
 app.use(express.static(path.join(__dirname, "public")));
 //app.use(express.static("public"));
+
 //ROTA principal
 
 app.get('/', (req, res) =>
